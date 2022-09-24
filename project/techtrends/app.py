@@ -93,6 +93,10 @@ def healthz():
 def metrics():
     global post_count
     db_connection_count = 10
+    connection = get_db_connection()
+    post = connection.execute('SELECT * FROM posts').fetchone()
+    post_count = len(post)
+    connection.close()
     data = {
         "db_connection_count": db_connection_count,
         "post_count": post_count
