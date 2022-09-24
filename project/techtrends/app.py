@@ -1,3 +1,4 @@
+from distutils.log import debug
 from glob import glob
 import re
 import sqlite3
@@ -5,6 +6,9 @@ import sqlite3
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 from flask import jsonify
+
+import logging
+import sys
 
 post_count = 0
 
@@ -24,6 +28,7 @@ def get_post(post_id):
     connection = get_db_connection()
     post = connection.execute('SELECT * FROM posts WHERE id = ?',
                               (post_id, )).fetchone()
+    app.logger.info(post)
     connection.close()
     return post
 
@@ -48,14 +53,23 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+        app.logger.info("Non-Existing Article")
+        logger.info("404 - Article does not exists")
+        logger.addHandler(h1)
+        logger.addHandler(h2)
         return render_template('404.html'), 404
     else:
+        logger.info('Article "%s" retrieved!', post['title'])
         return render_template('post.html', post=post)
 
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.info("/About Request Succesfully")
+    logger.info("About Us")
+    logger.addHandler(h1)
+    logger.addHandler(h2)
     return render_template('about.html')
 
 
@@ -92,10 +106,9 @@ def healthz():
 @app.route('/metrics', methods=['GET'])
 def metrics():
     global post_count
-    db_connection_count = 10
     connection = get_db_connection()
     post = connection.execute('SELECT * FROM posts').fetchone()
-    post_count = len(post)
+    db_connection_count = len(post)
     connection.close()
     data = {
         "db_connection_count": db_connection_count,
@@ -106,4 +119,18 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='3111')
+    # logger = logging.getLogger("__name__")
+    # logging.basicConfig(filename='app.log', level=logging.DEBUG)
+    # h1 = logging.StreamHandler(sys.stdout)
+    # h1.setLevel(logging.DEBUG)
+    # h2 = logging.StreamHandler(sys.stderr)
+    # h2.setLevel(logging.ERROR)
+    logger = logging.getLogger("__name__")
+    logging.basicConfig(level=logging.DEBUG)
+    h1 = logging.StreamHandler(sys.stdout)
+    h1.setLevel(logging.DEBUG)
+    h2 = logging.StreamHandler(sys.stderr)
+    h2.setLevel(logging.ERROR)
+    logger.addHandler(h1)
+    logger.addHandler(h2)
+    app.run(host='0.0.0.0', port='3111', debug=True)
