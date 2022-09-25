@@ -8,7 +8,7 @@ docker build --tag techtrends .
 
 # TODO: insert the docker run command
 
-docker run -it --publish 3111:3111 techtrends
+docker run -it --publish 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
 
