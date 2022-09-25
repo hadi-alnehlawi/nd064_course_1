@@ -25,6 +25,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./project
+          context: "{{defaultContext}}:project"
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
