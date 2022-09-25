@@ -8,12 +8,49 @@ docker build --tag techtrends .
 
 # TODO: insert the docker run command
 
-docker run -it --publish 7111:3111 techtrends
+docker run --detach --name techtrends --rm --publish 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
 
-# TODO: insert the docker logs command
+docker logs techtrends
 
 ## Logs from the container running the TechTrends application
 
-# TODO: paste logs from the Docker container
+- Serving Flask app 'app' (lazy loading)
+- Environment: production
+  WARNING: This is a development server. Do not use it in a production deployment.
+  Use a production WSGI server instead.
+- Debug mode: on
+  WARNING:werkzeug: _ Running on all addresses.
+  WARNING: This is a development server. Do not use it in a production deployment.
+  INFO:werkzeug: _ Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+  INFO:werkzeug: _ Restarting with stat
+  WARNING:werkzeug: _ Debugger is active!
+  INFO:werkzeug: \* Debugger PIN: 949-270-108
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:06] "GET / HTTP/1.1" 200 -
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:06] "GET /static/css/main.css HTTP/1.1" 304 -
+  INFO:app:<sqlite3.Row object at 0x7f4f5c2b1cf0>
+  Article "2020 CNCF Annual Report" retrieved!
+  INFO:**name**:Article "2020 CNCF Annual Report" retrieved!
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:08] "GET /1 HTTP/1.1" 200 -
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:08] "GET /static/css/main.css HTTP/1.1" 304 -
+  INFO:app:<sqlite3.Row object at 0x7f4f5c2b1ef0>
+  INFO:**name**:Article "KubeCon + CloudNativeCon 2021" retrieved!
+  Article "KubeCon + CloudNativeCon 2021" retrieved!
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:10] "GET /2 HTTP/1.1" 200 -
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:10] "GET /static/css/main.css HTTP/1.1" 304 -
+  INFO:app:<sqlite3.Row object at 0x7f4f5c2b1cf0>
+  INFO:**name**:Article "Kubernetes v1.20 Release Notes" retrieved!
+  Article "Kubernetes v1.20 Release Notes" retrieved!
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:12] "GET /3 HTTP/1.1" 200 -
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:12] "GET /static/css/main.css HTTP/1.1" 304 -
+  INFO:app:<sqlite3.Row object at 0x7f4f5c2b1f10>
+  INFO:**name**:Article "CNCF Cloud Native Interactive Landscape" retrieved!
+  Article "CNCF Cloud Native Interactive Landscape" retrieved!
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:15] "GET /4 HTTP/1.1" 200 -
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:15] "GET /static/css/main.css HTTP/1.1" 304 -
+  INFO:app:<sqlite3.Row object at 0x7f4f5c2b1dd0>
+  Article "CNCF Cloud Native Definition v1.0" retrieved!
+  INFO:**name**:Article "CNCF Cloud Native Definition v1.0" retrieved!
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:19] "GET /5 HTTP/1.1" 200 -
+  INFO:werkzeug:172.17.0.1 - - [25/Sep/2022 00:42:19] "GET /static/css/main.css HTTP/1.1" 304 -
