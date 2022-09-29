@@ -1,4 +1,4 @@
-name: ci
+name: TechTrends - Package with Docker
 
 on:
   push:
@@ -27,4 +27,4 @@ jobs:
         with:
           context: "{{defaultContext}}:project"
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
