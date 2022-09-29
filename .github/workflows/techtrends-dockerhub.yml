@@ -28,3 +28,4 @@ jobs:
           context: "{{defaultContext}}:project"
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
+  
