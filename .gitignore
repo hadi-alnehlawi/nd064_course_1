@@ -5,3 +5,4 @@
 __pycache__/
 .vagrant/
 **/venv/**
+**.DS_Store**
