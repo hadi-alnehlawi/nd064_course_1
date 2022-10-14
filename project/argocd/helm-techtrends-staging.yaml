@@ -15,7 +15,7 @@ spec:
       - values-staging.yaml
     path: project/helm
     repoURL: https://github.com/hadi-alnehlawi/nd064_course_1
-    targetRevisio: HEAD
+    targetRevision: HEAD
 
 
 
