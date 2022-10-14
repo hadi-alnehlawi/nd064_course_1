@@ -11,6 +11,7 @@ image:
   repository: techtrends
   tag: latest
   pullPolicy: IfNotPresent
+  dockerhub: hadialnehlawi
 
 replicaCount: 1
 
