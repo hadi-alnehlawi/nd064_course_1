@@ -1,4 +1,4 @@
-sudo apt-get install jq
+
 export VERSIONS_COUNT=$(gcloud app versions list --sort-by=createTime --format=json | jq ' . | length');
 echo $VERSIONS_COUNT;
 if [[ $VERSIONS_COUNT == 210 ]] 
