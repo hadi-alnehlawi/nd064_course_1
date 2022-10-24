@@ -14,8 +14,8 @@ steps:
       #         echo "deleting the last verion which its count is 210...."
       #         gcloud app versions delete $(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)') --quiet
       # fi
-options:
-  logging: GCS_ONLY
+# options:
+#   logging: GCS_ONLY
 
 substitutions:
     _SUB_VALUE: unused
