@@ -40,4 +40,4 @@
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
-    args: ['sh','./appengine/demo.sh']
+    args: ['appengine/demo.sh']
