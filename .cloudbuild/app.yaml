@@ -17,7 +17,7 @@
 
 steps:
   - name: 'ubuntu'
-    args: ['pwd']
+    args: ['ls -a']
 substitutions:
   _SUB_VALUE: unused
 options:
