@@ -39,4 +39,4 @@
 
 steps:
   - name: 'bash'
-    args: ['ls']
+    args: ['sh','./appengine/demo.sh']
