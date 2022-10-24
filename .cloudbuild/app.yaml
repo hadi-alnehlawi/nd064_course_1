@@ -38,6 +38,6 @@
 #     - '--allow-unauthenticated'
 
 steps:
-  - name: 'google/cloud-sdk:debian_component_based'
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args: ['appengine/demo.sh']
