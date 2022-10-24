@@ -17,7 +17,7 @@
 
 steps:
   - name: 'ubuntu'
-    args: ['echo', 'hello world']
+    args: ['pwd']
 substitutions:
   _SUB_VALUE: unused
 options:
