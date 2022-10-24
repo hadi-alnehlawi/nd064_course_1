@@ -15,7 +15,7 @@ steps:
       #         gcloud app versions delete $(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)') --quiet
       # fi
 options:
-  logging: CLOUD_LOGGING_ONLY
+  logging: GCS_ONLY
 
 substitutions:
     _SUB_VALUE: unused
