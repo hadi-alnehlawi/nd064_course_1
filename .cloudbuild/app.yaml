@@ -17,7 +17,7 @@
 
 steps:
   - name: 'ubuntu'
-    args: ['ls -a']
+    args: ['ls', '-a']
 substitutions:
   _SUB_VALUE: unused
 options:
