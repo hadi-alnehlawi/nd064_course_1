@@ -2,18 +2,20 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     id: "cleanup"
     entrypoint: 'bash'
+    env:
+      - "VERSIONS_COUNT=0"
     args: 
     - -c
     - |
-        for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)" --service=${_SERVICE_NAME} )
+        for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)" --service=${_SERVICE_NAME}) )
         do
-          ((${_VERSIONS_COUNT}=${_VERSIONS_COUNT}+1))
+          (($VERSIONS_COUNT=$VERSIONS_COUNT+1))
         done
         
-        echo ${_VERSIONS_COUNT}
+        echo $VERSIONS_COUNT
         
         
-        if [[ ${_VERSIONS_COUNT} == 6 ]] 
+        if [[ $VERSIONS_COUNT == 6 ]] 
         then 
           echo "Deleting the last verion which its count is 200....!!" 
           gcloud app versions delete $(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)' --service=${_SERVICE_NAME}) --quiet
@@ -29,5 +31,4 @@ steps:
   #   args: ["app", "deploy", "./appengine", "--quiet"]
 substitutions:
   _SERVICE_NAME: "chr-service"
-  _VERSIONS_COUNT: "0"
 
