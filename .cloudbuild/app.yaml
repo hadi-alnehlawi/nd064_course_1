@@ -2,11 +2,12 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     id: "cleanup"
     entrypoint: 'bash'
+    env:
+      - SCRIPT_URI="appengine/scripts/cleanup_last_appengine_build.sh"      
     args: 
       - -c
-      - export SCRIPT_URI="appengine/scripts/cleanup_last_appengine_build.sh"
-      - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./$$SCRIPT_URI
-      - $$SCRIPT_URI
+      - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./$SCRIPT_URI
+      - $SCRIPT_URI
   # - name: "gcr.io/cloud-builders/gcloud"
   #   waitFor: ["cleanup"]
   #   args: ["app", "deploy", "./appengine", "--quiet"]
