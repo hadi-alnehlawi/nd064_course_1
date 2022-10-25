@@ -1,6 +1,6 @@
 VERSIONS_COUNT=0
 SERVICE_NAME=chr-service
-VERSION_MAX=4
+VERSION_MAX=2
 
 # for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)" --service=$SERVICE_NAME)
 # do
@@ -20,7 +20,7 @@ VERSION_MAX=4
 versions=$(gcloud app versions list \
   --service $SERVICE_NAME \
   --sort-by '~VERSION.ID' \
-  --format 'value(VERSION.ID)' | sed 1,2d)
+  --format 'value(VERSION.ID)' | sed 1,$VERSION_MAXd)
 for version in $versions; do
   gcloud app versions delete "$version" \
     --service $SERVICE_NAME \
