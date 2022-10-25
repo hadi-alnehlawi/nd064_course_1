@@ -5,7 +5,7 @@ steps:
     args: 
       - -c
       - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./${_SCRIPT_URI} 
-      - sh ./${_SCRIPT_URI}
+      - sh ${_SCRIPT_URI}
   # - name: "gcr.io/cloud-builders/gcloud"
   #   waitFor: ["cleanup"]
   #   args: ["app", "deploy", "./appengine", "--quiet"]
