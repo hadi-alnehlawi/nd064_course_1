@@ -3,6 +3,9 @@ steps:
     id: "cleanup"
     entrypoint: 'bash'
     args: ['appengine/demo.sh']
+  - name: "gcr.io/cloud-builders/gcloud"
+    waitFor: ["cleanup"]
+    args: ["version"]
   # - name: "gcr.io/cloud-builders/gcloud"
   #   waitFor: ["cleanup"]
   #   args: ["app", "deploy", "./appengine"]
