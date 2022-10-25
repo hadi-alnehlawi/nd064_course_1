@@ -5,4 +5,4 @@ steps:
     args: ['appengine/demo.sh']
   - name: "gcr.io/cloud-builders/gcloud"
     waitFor: ["cleanup"]
-    args: ["app", "deploy", "../appengine"]
+    args: ["app", "deploy", "./appengine"]
