@@ -3,7 +3,7 @@ steps:
     id: "cleanup"
     entrypoint: 'bash'
     env:
-      - SCRIPT_URI="appengine/scripts/cleanup_last_appengine_build.sh"      
+      - "SCRIPT_URI=appengine/scripts/cleanup_last_appengine_build.sh"      
     args: 
       - -c
       - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./$SCRIPT_URI
