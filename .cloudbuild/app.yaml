@@ -7,7 +7,7 @@ steps:
     - |
         VERSIONS_COUNT=0
         SERVICE_NAME=chr-service
-        for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)" --service=$SERVICE_NAME)
+        for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)" --service=${_SERVICE_NAME} )
         do
           ((VERSIONS_COUNT=VERSIONS_COUNT+1))
         done
@@ -18,7 +18,7 @@ steps:
         if [[ $VERSIONS_COUNT == 6 ]] 
         then 
           echo "Deleting the last verion which its count is 200....!!" 
-          gcloud app versions delete $(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)' --service=$SERVICE_NAME) --quiet
+          gcloud app versions delete $(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)' --service=${_SERVICE_NAME}) --quiet
         fi
     
     # args: 
@@ -30,5 +30,5 @@ steps:
   #   waitFor: ["cleanup"]
   #   args: ["app", "deploy", "./appengine", "--quiet"]
 substitutions:
-  _SCRIPT_URI: appengine/scripts/cleanup_last_appengine_build.sh
+  _SERVICE_NAME: chr-service
 
