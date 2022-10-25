@@ -8,7 +8,7 @@ done
 echo $VERSIONS_COUNT
 
 
-if [[ $VERSIONS_COUNT == 200 ]] 
+if [[ $VERSIONS_COUNT == 5 ]] 
 then 
 	echo "Deleting the last verion which its count is 200....!!" 
 	gcloud app versions delete $(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)' --service=$SERVICE_NAME) --quiet
