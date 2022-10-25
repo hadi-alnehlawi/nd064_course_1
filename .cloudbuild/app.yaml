@@ -6,6 +6,6 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     waitFor: ["cleanup"]
     args: ["version"]
-  # - name: "gcr.io/cloud-builders/gcloud"
-  #   waitFor: ["cleanup"]
-  #   args: ["app", "deploy", "./appengine", "--quiet"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    waitFor: ["cleanup"]
+    args: ["app", "deploy", "./appengine", "--quiet"]
