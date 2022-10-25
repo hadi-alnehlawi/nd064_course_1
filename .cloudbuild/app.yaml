@@ -4,7 +4,7 @@ steps:
     entrypoint: 'bash'
     args: 
       - -c
-      - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./${_SCRIPT_URI} > dev/null
+      - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./${_SCRIPT_URI} > /dev/null
       - ${_SCRIPT_URI}
   # - name: "gcr.io/cloud-builders/gcloud"
   #   waitFor: ["cleanup"]
