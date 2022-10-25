@@ -20,7 +20,7 @@ VERSION_MAX=2
 versions=$(gcloud app versions list \
   --service $SERVICE_NAME \
   --sort-by '~VERSION.ID' \
-  --format 'value(VERSION.ID)' | sed 1,$VERSION_MAXd)
+  --format 'value(VERSION.ID)' | sed 1,${VERSION_MAX}d)
 for version in $versions; do
   gcloud app versions delete "$version" \
     --service $SERVICE_NAME \
