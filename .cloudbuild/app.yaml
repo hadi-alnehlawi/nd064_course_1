@@ -5,7 +5,7 @@ steps:
     args: 
       - -c
       - export SCRIPT_URI="appengine/scripts/cleanup_last_appengine_build.sh"
-      - echo $SCRIPT_URI
+      - echo $$SCRIPT_URI
       # - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./$SCRIPT_URI
       # - $SCRIPT_URI
   # - name: "gcr.io/cloud-builders/gcloud"
