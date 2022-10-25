@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     id: "cleanup"
     entrypoint: 'bash'
-    args: ["appengine/scripts/cleanup_last_appengine_build.sh"]
+    args: ["${_CLEANUP_URI}"]
 
     # args: 
     #   - -c
@@ -13,6 +13,6 @@ steps:
   #   waitFor: ["cleanup"]
   #   args: ["app", "deploy", "./appengine", "--quiet"]
 substitutions:
-  _CLEANUP_URI: "appengine/scritps/cleanup_last_appengine_build.sh"
+  _CLEANUP_URI: "appengine/scripts/cleanup_last_appengine_build.sh"
 
 
