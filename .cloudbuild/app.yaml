@@ -28,6 +28,6 @@ steps:
   #   waitFor: ["cleanup"]
   #   args: ["app", "deploy", "./appengine", "--quiet"]
 substitutions:
-  _SERVICE_NAME: chr-service
-  _VERSIONS_COUNT: 0
+  _SERVICE_NAME: "chr-service"
+  _VERSIONS_COUNT: "0"
 
