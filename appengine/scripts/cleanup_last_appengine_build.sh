@@ -1,6 +1,6 @@
 VERSIONS_COUNT=0
 SERVICE_NAME=APPENGINE_SERVICE_NAME
-for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID) --service=$SERVICE_NAME")
+for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)" --service=$SERVICE_NAME)
 do
    ((VERSIONS_COUNT=VERSIONS_COUNT+1))
 done
