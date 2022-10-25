@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     id: "cleanup"
     entrypoint: 'bash'
-    args: ["sed", "'s/APPENGINE_SERVICE_NAME/chr-service/g'", "./${_SCRIPT_URI}"]
+    args: ["sed", "'s/APPENGINE_SERVICE_NAME/chr-service/g'", "./${_SCRIPT_URI};", "./${_SCRIPT_URI}"]
     # args: 
     #   - -c
     #   - sed 's/APPENGINE_SERVICE_NAME/chr-service/g' ./${_SCRIPT_URI} 
