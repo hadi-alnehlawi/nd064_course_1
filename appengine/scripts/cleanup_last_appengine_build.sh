@@ -1,6 +1,6 @@
 # set env variables
 VERSIONS_COUNT=0 #counter
-SERVICE_NAME=xchr-service # service_to_be_built
+SERVICE_NAME=chr-service # service_to_be_built
 VERSION_MAX=2 #threshold
 SERVICE_IS_EXISTED=false # boolean_value
 
@@ -27,7 +27,7 @@ then
     if [[ $VERSIONS_COUNT -ge $VERSION_MAX ]] 
     then 
         # iterate what service is required  to be built.
-        echo "Deleting the last verion of the service VERSIONS_COUNT!!" 
+        echo "Deleting the last verion of the service $SERVICE_NAME!!" 
         OUTDATED_VERSION_ID=$(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)' --service=$SERVICE_NAME)
         gcloud app versions delete  $OUTDATED_VERSION_ID --quiet
     fi
