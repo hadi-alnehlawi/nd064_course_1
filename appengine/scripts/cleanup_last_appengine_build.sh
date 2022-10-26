@@ -10,7 +10,7 @@ for service in gcloud app services list --format="value(SERVICE)"
 do 
     if [[ service ==  $SERVICE_NAME ]]
     then
-        SERVICE_IS_EXISTED=true
+        ((SERVICE_IS_EXISTED=true))
     fi 
 done 
 
