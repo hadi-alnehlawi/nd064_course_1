@@ -1,9 +1,9 @@
-VERSIONS_COUNT=0
-SERVICE_NAME=default
-VERSION_MAX=2
+# set env variables
+VERSIONS_COUNT=0 #counter
+SERVICE_NAME=chr-service # service_to_be_built
+VERSION_MAX=2 #thredshold
 
 # check for the total number of build in the app engine if it is over a thredshold, for example : 200
-
 for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)")
 do
    ((VERSIONS_COUNT=VERSIONS_COUNT+1))
@@ -19,14 +19,3 @@ then
 	gcloud app versions delete  $OUTDATED_VERSION_ID --quiet
 fi
 
-
-
-# versions=$(gcloud app versions list \
-#   --service $SERVICE_NAME \
-#   --sort-by '~VERSION.ID' \
-#   --format 'value(VERSION.ID)' | sed 1,${VERSION_MAX}d)
-# for version in $versions; do
-#   gcloud app versions delete "$version" \
-#     --service $SERVICE_NAME \
-#     --quiet
-# done
