@@ -10,6 +10,7 @@ for service in gcloud app services list --format="value(SERVICE)"
 do 
     if [[ service ==  $SERVICE_NAME ]]
     then
+        echo $service
         ((SERVICE_IS_EXISTED=true))
     fi 
 done 
@@ -31,6 +32,6 @@ then
         # gcloud app versions delete  $OUTDATED_VERSION_ID --quiet
     fi
 else
-    echo "the service SERVICE_NAME is not existed and nothing to be cleaned-up"
+    echo "the service $SERVICE_NAME is not existed and nothing to be cleaned-up"
 fi
 
