@@ -6,14 +6,14 @@ SERVICE_IS_EXISTED=false # boolean_value
 
 
 # check if the serivce is existexd
-for service in gcloud app services list --format="value(SERVICE)"
+for service in $(gcloud app services list --format="value(SERVICE)")
 do 
-    if [[ service ==  $SERVICE_NAME ]]
+    if [[ $service ==  $SERVICE_NAME ]]
     then
-        echo $service
-        ((SERVICE_IS_EXISTED=true))
+        SERVICE_IS_EXISTED=true
     fi 
 done 
+
 
 if [[ $SERVICE_IS_EXISTED == true ]]
 then
