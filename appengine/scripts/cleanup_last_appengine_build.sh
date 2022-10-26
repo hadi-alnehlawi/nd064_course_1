@@ -1,6 +1,6 @@
 # set env variables
 VERSIONS_COUNT=0 #counter
-SERVICE_NAME=ch-service # service_to_be_built
+SERVICE_NAME=chr-service # service_to_be_built
 VERSION_MAX=2 #threshold
 SERVICE_IS_EXISTED=false # boolean_value
 
