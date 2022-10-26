@@ -17,6 +17,7 @@ then
 fi
 
 
+
 # versions=$(gcloud app versions list \
 #   --service $SERVICE_NAME \
 #   --sort-by '~VERSION.ID' \
