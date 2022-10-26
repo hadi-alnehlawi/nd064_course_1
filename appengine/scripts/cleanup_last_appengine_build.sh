@@ -29,7 +29,7 @@ then
         # iterate what service is required  to be built.
         echo "Deleting the last verion of the service VERSIONS_COUNT!!" 
         OUTDATED_VERSION_ID=$(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)' --service=$SERVICE_NAME)
-        # gcloud app versions delete  $OUTDATED_VERSION_ID --quiet
+        gcloud app versions delete  $OUTDATED_VERSION_ID --quiet
     fi
 else
     echo  $SERVICE_IS_EXISTED
