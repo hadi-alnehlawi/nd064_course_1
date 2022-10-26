@@ -1,8 +1,8 @@
 VERSIONS_COUNT=0
-SERVICE_NAME=chr-service
+SERVICE_NAME=default
 VERSION_MAX=2
 
-for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)" --service=$SERVICE_NAME)
+for ID in $(gcloud app versions list --sort-by=createTime --format="value(VERSION.ID)")
 do
    ((VERSIONS_COUNT=VERSIONS_COUNT+1))
 done
