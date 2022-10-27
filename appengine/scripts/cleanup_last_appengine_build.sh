@@ -1,6 +1,6 @@
 # set env variables
 VERSIONS_COUNT=0 #counter
-SERVICE_NAME=chr-servicex # service_to_be_built
+SERVICE_NAME=chr-service # service_to_be_built
 VERSION_MAX=2 #threshold
 SERVICE_IS_EXISTED=false # boolean_value
 
@@ -32,7 +32,6 @@ then
         gcloud app versions delete  $OUTDATED_VERSION_ID --quiet
     fi
 else
-    echo  $SERVICE_IS_EXISTED
-    echo "the service $SERVICE_NAME is not existed and nothing to be cleaned-up"
+    echo "the service $SERVICE_NAME is not existed and nothing to be cleaned-up.."
 fi
 
