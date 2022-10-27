@@ -31,7 +31,7 @@ then
         OUTDATED_VERSION_ID=$(gcloud app versions list --sort-by=createTime --limit 1 --format='value(VERSION.ID)' --service=$SERVICE_NAME)
         gcloud app versions delete  $OUTDATED_VERSION_ID --quiet
     else
-        echo "the version account ($VERSIONS_COUNT) is under the threshold (VERSION_MAX) and nothing to be cleaned-up...!"
+        echo "the number of versions [$VERSIONS_COUNT)] is under the threshold [$VERSION_MAX] and nothing to be cleaned-up...!"
     fi
 else
     echo "the service $SERVICE_NAME is not existed and nothing to be cleaned-up..!"
